@@ -49,33 +49,7 @@ El objetivo de esta etapa fue garantizar un catálogo libre de errores de duraci
 ---
 
 ## 🛠️ Consulta SQL de Limpieza y Extracción
-```sql
-USE sakila;
-
-SELECT 
-    f.film_id,
-    LOWER(TRIM(f.title)) AS title,
-    LOWER(TRIM(f.description)) AS description,
-    f.release_year,
-    LOWER(l.name) AS language,
-    LOWER(cat.name) AS category,
-    f.length,
-    f.rating,
-    -- Columna derivada: Identificación de películas largas
-    CASE WHEN f.length >= 120 THEN 1 ELSE 0 END AS is_long_film,
-    -- Agrupación: Conteo de copias en inventario
-    (SELECT COUNT(*) FROM inventory i WHERE i.film_id = f.film_id) AS inventory_count
-FROM film f
-INNER JOIN language l ON f.language_id = l.language_id
-LEFT JOIN film_category fc ON f.film_id = fc.film_id
-LEFT JOIN category cat ON fc.category_id = cat.category_id
-WHERE 
-    f.length > 0               -- Filtro de duraciones válidas
-    AND f.rating IS NOT NULL    -- Filtro de integridad en rating
-    AND f.title IS NOT NULL;    -- Garantía de presencia de título
-
-## 🛠️ Consulta SQL de Limpieza y Extracción
-*Realizada por M. Ángel Moreno*
+*Realizada por Jose Carlos De Santiago Sanchez*
 
 # 🎞️ Dataframe 3: Elenco y Popularidad - Limpieza y Transformación
 
@@ -98,27 +72,6 @@ Se integraron subconsultas para calcular métricas clave de volumen:
 *   **Densidad de elenco:** Total de actores por película.
 *   **Frecuencia de actor:** Total de películas en las que ha participado cada actor.
 
----
-
-## 🛠️ Consulta SQL Consolidada
-```sql
-SELECT 
-    f.film_id,
-    f.title AS titulo_pelicula,
-    a.actor_id,
-    CONCAT(LOWER(a.first_name), ' ', LOWER(a.last_name)) AS actor_full_name,
-    -- Número de actores por película (Agregación)
-    (SELECT COUNT(*) 
-     FROM film_actor fa2 
-     WHERE fa2.film_id = f.film_id) AS total_actores_pelicula,
-    -- Número de películas por actor (Popularidad)
-    (SELECT COUNT(*) 
-     FROM film_actor fa3 
-     WHERE fa3.actor_id = a.actor_id) AS total_peliculas_actor
-FROM film f
-INNER JOIN film_actor fa ON f.film_id = fa.film_id
-INNER JOIN actor a ON fa.actor_id = a.actor_id
-ORDER BY f.title ASC;
 
 ## 🛠️ Consulta SQL de Limpieza y Extracción
-*Realizada por M. Ángel Moreno*
+*Realizada por Ana Paula Montiel*
