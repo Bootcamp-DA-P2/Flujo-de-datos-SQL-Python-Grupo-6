@@ -75,3 +75,23 @@ Se integraron subconsultas para calcular métricas clave de volumen:
 
 ## 🛠️ Consulta SQL de Limpieza y Extracción
 *Realizada por Ana Paula Montiel*
+
+## Cómo ejecutar el proyecto
+
+1. Clonar el repositorio:
+```bash
+git clone <URL>
+```
+
+2. Abrir el notebook en Google Colab
+
+3. Ejecutar todas las celdas en orden
+
+# Conclusión
+
+El proceso de limpieza se centró en transformar tres tablas crudas (pedidos, productos y clientes) en un conjunto de datos listo para el análisis. Las acciones principales incluyeron:
+
+* **Normalización de texto:** Conversión de nombres a minúsculas y eliminación de caracteres especiales.
+* **Gestión de fechas:** Estandarización de formatos y cálculo de la antigüedad de los clientes.
+* **Tratamiento de nulos y valores atípicos:** Imputación de datos faltantes y filtrado de precios o cantidades inconsistentes.
+* **Enriquecimiento:** Creación de variables como el "Total del Pedido" y unión de las tablas mediante *joins* de SQL para consolidar la información.
