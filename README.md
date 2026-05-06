@@ -98,4 +98,3 @@ El proceso de limpieza se centró en transformar tres tablas crudas (pedidos, pr
 
 ### 🚀 Gestión del Proyecto
 Puedes seguir nuestro progreso en nuestro [Tablero de Trello](https://trello.com/b/J8hV6svY/proyecto-3-grupo-6).
-Hemos decicido organizarnos en Trello.
