@@ -95,3 +95,7 @@ El proceso de limpieza se centró en transformar tres tablas crudas (pedidos, pr
 * **Gestión de fechas:** Estandarización de formatos y cálculo de la antigüedad de los clientes.
 * **Tratamiento de nulos y valores atípicos:** Imputación de datos faltantes y filtrado de precios o cantidades inconsistentes.
 * **Enriquecimiento:** Creación de variables como el "Total del Pedido" y unión de las tablas mediante *joins* de SQL para consolidar la información.
+
+### 🚀 Gestión del Proyecto
+Puedes seguir nuestro progreso en nuestro [Tablero de Trello](https://trello.com/b/J8hV6svY/proyecto-3-grupo-6).
+Hemos decicido organizarnos en Trello.
